@@ -34,6 +34,7 @@
 		4965DB6D25752FFE00FB4337 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4965DB6C25752FFE00FB4337 /* UserService.swift */; };
 		4965DB702575303200FB4337 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4965DB6F2575303200FB4337 /* Constants.swift */; };
 		4965DB73257531AE00FB4337 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4965DB72257531AE00FB4337 /* User.swift */; };
+		4965DB762575351500FB4337 /* ProfileHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4965DB752575351500FB4337 /* ProfileHeaderViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		4965DB6C25752FFE00FB4337 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		4965DB6F2575303200FB4337 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4965DB72257531AE00FB4337 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4965DB752575351500FB4337 /* ProfileHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderViewModel.swift; sourceTree = "<group>"; };
 		8254378452A7446077AE7CF0 /* Pods_Instagram_Clone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instagram_Clone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -142,6 +144,7 @@
 		4945A58A256FCB350003826D /* API */ = {
 			isa = PBXGroup;
 			children = (
+				4965DB6C25752FFE00FB4337 /* UserService.swift */,
 				4965DAF92574FE4B00FB4337 /* ImageUploader.swift */,
 				4965DAFC2574FE5300FB4337 /* AuthService.swift */,
 			);
@@ -166,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				4945122A2573A2AF0055AC72 /* AuthenticationViewModel.swift */,
+				4965DB752575351500FB4337 /* ProfileHeaderViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -193,7 +197,6 @@
 			children = (
 				4965DAFF25750AA200FB4337 /* ProfileCell.swift */,
 				4965DB0225750AAD00FB4337 /* ProfileHeader.swift */,
-				4965DB6C25752FFE00FB4337 /* UserService.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				4945A592256FCBF80003826D /* MainTabController.swift in Sources */,
 				4965DB73257531AE00FB4337 /* User.swift in Sources */,
 				4945A598256FCD810003826D /* ImageSelectorController.swift in Sources */,
+				4965DB762575351500FB4337 /* ProfileHeaderViewModel.swift in Sources */,
 				4965DB702575303200FB4337 /* Constants.swift in Sources */,
 				4945A577256FCB040003826D /* SceneDelegate.swift in Sources */,
 				4945A5A1256FCDA60003826D /* FeedController.swift in Sources */,

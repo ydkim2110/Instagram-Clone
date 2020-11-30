@@ -15,9 +15,7 @@ class ProfileController: UICollectionViewController {
     // MARK: - Properties
     
     var user: User? {
-        didSet {
-            navigationItem.title = user?.username
-        }
+        didSet { collectionView.reloadData() }
     }
     
     // MARK: - Lifecycle
@@ -32,7 +30,10 @@ class ProfileController: UICollectionViewController {
     // MARK: - API
     
     func fetchUser() {
-        UserService.fetchUser() { user in self.user = user }
+        UserService.fetchUser() { user in
+            self.user = user
+            self.navigationItem.title = user.username
+        }
     }
     
     // MARK: - Helpers
@@ -80,10 +81,16 @@ extension ProfileController {
         at indexPath: IndexPath
     ) -> UICollectionReusableView {
         
+        print("DEBUG: Did call header function...")
+        
         let header = collectionView.dequeueReusableSupplementaryView(
             ofKind: kind,
             withReuseIdentifier: headerIdentifier,
             for: indexPath) as! ProfileHeader
+        
+        if let user = user {
+            header.viewModel = ProfileHeaderViewModel(user: user)
+        }
         
         return header
         
