@@ -49,6 +49,8 @@ class MainTabController: UITabBarController {
     // MARK: - Helpers
     
     func configureViewController(withUser user: User) {
+        print("DEBUG: Username: \(user.username)")
+        
         view.backgroundColor = .white
         
         let layout = UICollectionViewFlowLayout()
@@ -82,7 +84,7 @@ class MainTabController: UITabBarController {
 
 extension MainTabController: AuthenticationDelegate {
     func authenticationDidComplete() {
-        print("DEBUG: Auth did complete. Fetch user and update here...")
+        fetchUser()
         self.dismiss(animated: true, completion: nil)
     }
 }
