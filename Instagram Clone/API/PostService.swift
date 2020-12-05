@@ -13,6 +13,7 @@ struct PostService {
     static func uploadPost(
         caption: String,
         image: UIImage,
+        user: User,
         completion: @escaping(FirestoreCompletion)
     ) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
@@ -23,7 +24,9 @@ struct PostService {
                 "timestamp" : Timestamp(date: Date()),
                 "likes" : 0,
                 "imageUrl" : imageUrl,
-                "ownerUid" : uid
+                "ownerUid" : uid,
+                "ownerImageUrl" : user.profileImageUrl,
+                "ownerUsername" : user.username
             ] as [String : Any]
             
             COLLECTION_POSTS.addDocument(data: data, completion: completion)
