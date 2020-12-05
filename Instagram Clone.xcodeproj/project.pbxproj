@@ -32,6 +32,7 @@
 		494FDD7C257B4E8D00CDF905 /* InputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494FDD7B257B4E8D00CDF905 /* InputTextView.swift */; };
 		494FDD7F257B590A00CDF905 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494FDD7E257B590A00CDF905 /* PostService.swift */; };
 		494FDD82257B616D00CDF905 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494FDD81257B616D00CDF905 /* Post.swift */; };
+		494FDD85257B643C00CDF905 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494FDD84257B643C00CDF905 /* PostViewModel.swift */; };
 		4965DAD62574F65500FB4337 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4965DAD52574F65500FB4337 /* GoogleService-Info.plist */; };
 		4965DAFA2574FE4B00FB4337 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4965DAF92574FE4B00FB4337 /* ImageUploader.swift */; };
 		4965DAFD2574FE5300FB4337 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4965DAFC2574FE5300FB4337 /* AuthService.swift */; };
@@ -72,6 +73,7 @@
 		494FDD7B257B4E8D00CDF905 /* InputTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextView.swift; sourceTree = "<group>"; };
 		494FDD7E257B590A00CDF905 /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		494FDD81257B616D00CDF905 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		494FDD84257B643C00CDF905 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		4965DAD52574F65500FB4337 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4965DAF92574FE4B00FB4337 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		4965DAFC2574FE5300FB4337 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				4945122A2573A2AF0055AC72 /* AuthenticationViewModel.swift */,
 				4965DB752575351500FB4337 /* ProfileHeaderViewModel.swift */,
 				494FDD75257B294A00CDF905 /* UserCellViewModel.swift */,
+				494FDD84257B643C00CDF905 /* PostViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				494FDD85257B643C00CDF905 /* PostViewModel.swift in Sources */,
 				4941E8C22570FA8800A0058B /* CustomTextField.swift in Sources */,
 				4965DB0325750AAD00FB4337 /* ProfileHeader.swift in Sources */,
 				494FDD79257B4C2700CDF905 /* UploadPostController.swift in Sources */,
