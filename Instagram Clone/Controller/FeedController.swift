@@ -15,6 +15,7 @@ class FeedController: UICollectionViewController {
     // MARK: - Properties
     
     private var posts = [Post]()
+    var post: Post?
     
     // MARK: - Lifecycle
     
@@ -47,6 +48,8 @@ class FeedController: UICollectionViewController {
     // MARK: - API
     
     func fetchPosts() {
+        guard post == nil else { return }
+        
         PostService.fetchPosts { posts in
             self.posts = posts
             self.collectionView.refreshControl?.endRefreshing()
@@ -61,18 +64,23 @@ class FeedController: UICollectionViewController {
         
         collectionView.register(FeedCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(
-            title: "Logout",
-            style: .plain,
-            target: self,
-            action: #selector(handleLogout)
-        )
+        if post == nil {
+            navigationItem.leftBarButtonItem = UIBarButtonItem(
+                title: "Logout",
+                style: .plain,
+                target: self,
+                action: #selector(handleLogout)
+            )
+        }
         
         navigationItem.title = "Feed"
         
-        let refresher = UIRefreshControl()
-        refresher.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
-        collectionView.refreshControl = refresher
+        if post == nil {
+            let refresher = UIRefreshControl()
+            refresher.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+            collectionView.refreshControl = refresher
+        }
+        
     }
     
 }
@@ -86,7 +94,7 @@ extension FeedController {
         numberOfItemsInSection section: Int
     ) -> Int {
         
-        return posts.count
+        return post == nil ? posts.count : 1
     }
     
     override func collectionView(
@@ -97,7 +105,13 @@ extension FeedController {
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: reuseIdentifier, for: indexPath) as! FeedCell
         
-        cell.viewModel = PostViewModel(post: posts[indexPath.row])
+        print("DEBUG: Posts count \(posts.count)")
+        
+        if let post = post {
+            cell.viewModel = PostViewModel(post: post)
+        } else {
+            cell.viewModel = PostViewModel(post: posts[indexPath.row])
+        }
         
         return cell
     }
