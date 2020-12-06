@@ -49,8 +49,9 @@ class FeedController: UICollectionViewController {
     
     func fetchPosts() {
         guard post == nil else { return }
-        
+        print("DEBUG: Fetch posts...")
         PostService.fetchPosts { posts in
+            print("DEBUG: Fetch Complete")
             self.posts = posts
             self.collectionView.refreshControl?.endRefreshing()
             self.collectionView.reloadData()
@@ -105,6 +106,8 @@ extension FeedController {
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: reuseIdentifier, for: indexPath) as! FeedCell
         
+        cell.delegate = self
+        
         print("DEBUG: Posts count \(posts.count)")
         
         if let post = post {
@@ -136,3 +139,17 @@ extension FeedController: UICollectionViewDelegateFlowLayout {
     }
     
 }
+
+// MARK: - FeedCellDelegate
+
+extension FeedController: FeedCellDelegate {
+    
+    func cell(_ cell: FeedCell, wantsToShowCommentsFor post: Post) {
+        let controller = CommentController(collectionViewLayout: UICollectionViewFlowLayout())
+        
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
+}
+
+// FIXME: - Refresh시 fetchUser결과보다 collectionview reload가 먼저 호출됨
