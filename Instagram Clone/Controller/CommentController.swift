@@ -102,7 +102,9 @@ extension CommentController {
     ) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: reuseIdentifier, for: indexPath)
+            withReuseIdentifier: reuseIdentifier, for: indexPath) as! CommentCell
+        
+        cell.viewModel = CommentViewModel(comment: comments[indexPath.row])
         
         return cell
     }
@@ -119,7 +121,9 @@ extension CommentController: UICollectionViewDelegateFlowLayout {
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
         
-        return CGSize(width: view.frame.width, height: 80)
+        let viewModel = CommentViewModel(comment: comments[indexPath.row])
+        let height = viewModel.size(forWidth: view.frame.width).height + 32
+        return CGSize(width: view.frame.width, height: height)
         
     }
     

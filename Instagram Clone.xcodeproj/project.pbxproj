@@ -47,6 +47,7 @@
 		49AC83B9257D0BFA0038BC2D /* CommentInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC83B8257D0BFA0038BC2D /* CommentInputAccessoryView.swift */; };
 		49AC83BC257D15810038BC2D /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC83BB257D15810038BC2D /* CommentService.swift */; };
 		49AC83BF257D18380038BC2D /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC83BE257D18380038BC2D /* Comment.swift */; };
+		49AC83C2257D1B4D0038BC2D /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC83C1257D1B4D0038BC2D /* CommentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +94,7 @@
 		49AC83B8257D0BFA0038BC2D /* CommentInputAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInputAccessoryView.swift; sourceTree = "<group>"; };
 		49AC83BB257D15810038BC2D /* CommentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
 		49AC83BE257D18380038BC2D /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		49AC83C1257D1B4D0038BC2D /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
 		8254378452A7446077AE7CF0 /* Pods_Instagram_Clone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instagram_Clone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -201,6 +203,7 @@
 				4965DB752575351500FB4337 /* ProfileHeaderViewModel.swift */,
 				494FDD75257B294A00CDF905 /* UserCellViewModel.swift */,
 				494FDD84257B643C00CDF905 /* PostViewModel.swift */,
+				49AC83C1257D1B4D0038BC2D /* CommentViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49AC83C2257D1B4D0038BC2D /* CommentViewModel.swift in Sources */,
 				494FDD85257B643C00CDF905 /* PostViewModel.swift in Sources */,
 				4941E8C22570FA8800A0058B /* CustomTextField.swift in Sources */,
 				4965DB0325750AAD00FB4337 /* ProfileHeader.swift in Sources */,
