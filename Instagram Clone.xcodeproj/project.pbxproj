@@ -45,6 +45,7 @@
 		49AC83B3257D06070038BC2D /* CommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC83B2257D06070038BC2D /* CommentController.swift */; };
 		49AC83B6257D075C0038BC2D /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC83B5257D075C0038BC2D /* CommentCell.swift */; };
 		49AC83B9257D0BFA0038BC2D /* CommentInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC83B8257D0BFA0038BC2D /* CommentInputAccessoryView.swift */; };
+		49AC83BC257D15810038BC2D /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC83BB257D15810038BC2D /* CommentService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,7 @@
 		49AC83B2257D06070038BC2D /* CommentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentController.swift; sourceTree = "<group>"; };
 		49AC83B5257D075C0038BC2D /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		49AC83B8257D0BFA0038BC2D /* CommentInputAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInputAccessoryView.swift; sourceTree = "<group>"; };
+		49AC83BB257D15810038BC2D /* CommentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
 		8254378452A7446077AE7CF0 /* Pods_Instagram_Clone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instagram_Clone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -169,6 +171,7 @@
 				4965DAF92574FE4B00FB4337 /* ImageUploader.swift */,
 				4965DAFC2574FE5300FB4337 /* AuthService.swift */,
 				494FDD7E257B590A00CDF905 /* PostService.swift */,
+				49AC83BB257D15810038BC2D /* CommentService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				4941E8BC2570F35500A0058B /* LoginController.swift in Sources */,
 				4945A5A4256FD62B0003826D /* FeedCell.swift in Sources */,
 				4945A595256FCD740003826D /* SearchController.swift in Sources */,
+				49AC83BC257D15810038BC2D /* CommentService.swift in Sources */,
 				4945A575256FCB040003826D /* AppDelegate.swift in Sources */,
 				4945122B2573A2AF0055AC72 /* AuthenticationViewModel.swift in Sources */,
 				4944FC20257689B10034C5D8 /* UserCell.swift in Sources */,
