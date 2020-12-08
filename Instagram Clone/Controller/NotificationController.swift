@@ -31,7 +31,19 @@ class NotificationController: UITableViewController {
     func fetchNotifications() {
         NotificationService.fetchNotifications { notifications in
             self.notifications = notifications
-            print("DEBUG: Notifications \(notifications)")
+            self.checkIfUserIsFollowed()
+        }
+    }
+    
+    func checkIfUserIsFollowed() {
+        notifications.forEach { notification in
+            guard notification.type == .follow else { return }
+            
+            UserService.checkIfUserIsFollowed(uid: notification.uid) { isFollowed in
+                if let index = self.notifications.firstIndex(where: { $0.id == notification.id }) {
+                    self.notifications[index].userIsFollowed = isFollowed
+                }
+            }
         }
     }
     
@@ -47,6 +59,8 @@ class NotificationController: UITableViewController {
     }
     
 }
+
+// MARK: - UITableViewDataSource
 
 extension NotificationController {
     
@@ -65,8 +79,49 @@ extension NotificationController {
             withIdentifier: reuseIdentifier, for: indexPath) as! NotificationCell
   
         cell.viewModel = NotificationViewModel(notification: notifications[indexPath.row])
+        cell.delegate = self
         
         return cell
+    }
+    
+}
+
+// MARK: - UITableViewDelegate
+
+extension NotificationController {
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let uid = notifications[indexPath.row].uid
+        
+        UserService.fetchUser(withUid: uid) { user in
+            let controller = ProfileController(user: user)
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
+    }
+    
+}
+
+// MARK: - NotificationCellDelegate
+
+extension NotificationController: NotificationCellDelegate {
+    func cell(_ cell: NotificationCell, wantsToFollow uid: String) {
+        UserService.follow(uid: uid) { _ in
+            cell.viewModel?.notification.userIsFollowed.toggle()
+        }
+    }
+    
+    func cell(_ cell: NotificationCell, wantsToUnfollow uid: String) {
+        UserService.unfollow(uid: uid) { _ in
+            cell.viewModel?.notification.userIsFollowed.toggle()
+        }
+    }
+    
+    func cell(_ cell: NotificationCell, wantsToViewPost postId: String) {
+        PostService.fetchPost(withPostId: postId) { post in
+            let controller = FeedController(collectionViewLayout: UICollectionViewFlowLayout())
+            controller.post = post
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
     }
     
 }
