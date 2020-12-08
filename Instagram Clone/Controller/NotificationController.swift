@@ -64,6 +64,8 @@ extension NotificationController {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: reuseIdentifier, for: indexPath) as! NotificationCell
   
+        cell.viewModel = NotificationViewModel(notification: notifications[indexPath.row])
+        
         return cell
     }
     

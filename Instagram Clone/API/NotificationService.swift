@@ -11,6 +11,7 @@ struct NotificationService {
     
     static func uploadNotification(
         toUid uid: String,
+        fromUser: User,
         type: NotificationType,
         post: Post? = nil
     ) {
@@ -19,13 +20,16 @@ struct NotificationService {
         guard uid != currentUid else { return }
         
         let docRef =
-            COLLECTION_NOTIFICATIONS.document(uid).collection("user-notifications").document()
+            COLLECTION_NOTIFICATIONS.document(uid)
+                .collection("user-notifications").document()
         
         var data: [String : Any] = [
             "timestamp" : Timestamp(date: Date()),
-            "uid" : currentUid,
+            "uid" : fromUser.uid,
             "type" : type.rawValue,
-            "id" : docRef.documentID
+            "id" : docRef.documentID,
+            "userProfileImageUrl" : fromUser.profileImageUrl,
+            "username" : fromUser.username
         ]
         
         if let post = post {
