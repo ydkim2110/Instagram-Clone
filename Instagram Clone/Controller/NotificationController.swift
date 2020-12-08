@@ -13,12 +13,26 @@ class NotificationController: UITableViewController {
     
     // MARK:  - Properties
     
+    private var notifications = [Notification]() {
+        didSet { tableView.reloadData() }
+    }
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureTableView()
+        fetchNotifications()
+    }
+    
+    // MARK: - API
+    
+    func fetchNotifications() {
+        NotificationService.fetchNotifications { notifications in
+            self.notifications = notifications
+            print("DEBUG: Notifications \(notifications)")
+        }
     }
     
     // MARK: - Helpers
@@ -40,7 +54,7 @@ extension NotificationController {
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        return 10
+        return notifications.count
     }
     
     override func tableView(
