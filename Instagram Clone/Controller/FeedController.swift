@@ -55,9 +55,8 @@ class FeedController: UICollectionViewController {
         
         PostService.fetchPosts { posts in
             self.posts = posts
-            self.collectionView.refreshControl?.endRefreshing()
             self.checkIfUserLikedPost()
-            self.collectionView.reloadData()
+            self.collectionView.refreshControl?.endRefreshing()
         }
     }
     
@@ -156,6 +155,14 @@ extension FeedController: UICollectionViewDelegateFlowLayout {
 // MARK: - FeedCellDelegate
 
 extension FeedController: FeedCellDelegate {
+    
+    func cell(_ cell: FeedCell, wantsToShowProfileFor uid: String) {
+        UserService.fetchUser(withUid: uid) { user in
+            let contoller = ProfileController(user: user)
+            self.navigationController?.pushViewController(contoller, animated: true)
+        }
+        
+    }
     
     func cell(_ cell: FeedCell, wantsToShowCommentsFor post: Post) {
         
