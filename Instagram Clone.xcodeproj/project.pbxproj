@@ -46,6 +46,7 @@
 		4965DB702575303200FB4337 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4965DB6F2575303200FB4337 /* Constants.swift */; };
 		4965DB73257531AE00FB4337 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4965DB72257531AE00FB4337 /* User.swift */; };
 		4965DB762575351500FB4337 /* ProfileHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4965DB752575351500FB4337 /* ProfileHeaderViewModel.swift */; };
+		496E7E8425821A750029653D /* ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496E7E8325821A750029653D /* ResetPasswordController.swift */; };
 		49AC83B3257D06070038BC2D /* CommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC83B2257D06070038BC2D /* CommentController.swift */; };
 		49AC83B6257D075C0038BC2D /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC83B5257D075C0038BC2D /* CommentCell.swift */; };
 		49AC83B9257D0BFA0038BC2D /* CommentInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AC83B8257D0BFA0038BC2D /* CommentInputAccessoryView.swift */; };
@@ -97,6 +98,7 @@
 		4965DB6F2575303200FB4337 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4965DB72257531AE00FB4337 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4965DB752575351500FB4337 /* ProfileHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderViewModel.swift; sourceTree = "<group>"; };
+		496E7E8325821A750029653D /* ResetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordController.swift; sourceTree = "<group>"; };
 		49AC83B2257D06070038BC2D /* CommentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentController.swift; sourceTree = "<group>"; };
 		49AC83B5257D075C0038BC2D /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		49AC83B8257D0BFA0038BC2D /* CommentInputAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInputAccessoryView.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			children = (
 				4941E8BB2570F35500A0058B /* LoginController.swift */,
 				4941E8BE2570F36200A0058B /* RegistrationController.swift */,
+				496E7E8325821A750029653D /* ResetPasswordController.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				49AC83B9257D0BFA0038BC2D /* CommentInputAccessoryView.swift in Sources */,
 				4965DB762575351500FB4337 /* ProfileHeaderViewModel.swift in Sources */,
 				494FDD7C257B4E8D00CDF905 /* InputTextView.swift in Sources */,
+				496E7E8425821A750029653D /* ResetPasswordController.swift in Sources */,
 				4965DB702575303200FB4337 /* Constants.swift in Sources */,
 				4945A577256FCB040003826D /* SceneDelegate.swift in Sources */,
 				494FDD76257B294A00CDF905 /* UserCellViewModel.swift in Sources */,
