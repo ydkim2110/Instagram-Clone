@@ -59,4 +59,8 @@ struct AuthService {
         }
     }
     
+    static func resetPassword(withEmal email: String, completion: SendPasswordResetCallback?) {
+        Auth.auth().sendPasswordReset(withEmail: email, completion: completion)
+    }
+    
 }

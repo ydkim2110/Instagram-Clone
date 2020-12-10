@@ -7,11 +7,17 @@
 
 import UIKit
 
+protocol ResetPasswordControllerDelegate: class {
+    func controllerDidSendResetPasswordLink(_ controller: ResetPasswordController)
+}
+
 class ResetPasswordController : UIViewController {
     
     // MARK: - Properties
     
     private let emailTextField = CustomTextField(placeholder: "Email")
+    private var viewModel = ResetPasswordViewModel()
+    weak var delegate: ResetPasswordControllerDelegate?
     
     private let iconImage: UIImageView = {
         let iv = UIImageView(image: #imageLiteral(resourceName: "Instagram_logo_white"))
@@ -51,17 +57,41 @@ class ResetPasswordController : UIViewController {
     // MARK: - Actions
     
     @objc func handleResetPassword() {
+        guard let email = emailTextField.text else { return }
         
+        showLoader(true)
+        AuthService.resetPassword(withEmal: email) { error in
+            
+            if let error = error {
+                self.showMessage(withTitle: "Error", message: error.localizedDescription)
+                self.showLoader(false)
+                return
+            }
+            
+            self.showLoader(false)
+            self.delegate?.controllerDidSendResetPasswordLink(self)
+        }
     }
     
     @objc func handleDismissal() {
         navigationController?.popViewController(animated: true)
     }
     
+    
+    @objc func textDidChange(sender: UITextField) {
+        if sender == emailTextField {
+            viewModel.email = sender.text
+        }
+        
+        updateForm()
+    }
+    
     // MARK: - Helpers
     
     func configureUI() {
         configureGradientLayout()
+        
+        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         
         view.addSubview(backButton)
         backButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor,
@@ -80,4 +110,15 @@ class ResetPasswordController : UIViewController {
         stack.anchor(top: iconImage.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 32, paddingLeft: 32, paddingRight: 32)
     }
     
+}
+
+
+// MARK: - FormViewModel
+
+extension ResetPasswordController: FormViewModel {
+    func updateForm() {
+        resetPasswordButton.backgroundColor = viewModel.buttonBackgroundColor
+        resetPasswordButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
+        resetPasswordButton.isEnabled = viewModel.formIsValid
+    }
 }
